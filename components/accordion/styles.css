@@ -12,9 +12,9 @@
 /* For basic styling of the accordion component */
 /* Demo only */
 
-.accordion__item button:focus {
+/* .accordion__item button:focus {
   outline: 3px solid #4a90e2;
-}
+} */
 
 .accordion-trigger {
   width: 100%;
