@@ -5,3 +5,44 @@
 .accordion__item:has(button[aria-expanded="true"]) [role="region"] {
   display: block;
 }
+
+
+
+/* STYLES FOR ACCORDION COMPONENT */
+/* For basic styling of the accordion component */
+/* Demo only */
+
+.accordion__item button:focus {
+  outline: 3px solid #4a90e2;
+}
+
+.accordion-trigger {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: #e2e2e2;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.accordion-trigger::after {
+  content: "▼";
+  float: right;
+  color: #666;
+}
+
+.accordion-trigger[aria-expanded="true"]::after {
+  content: "▲";
+}
+
+.accordion__item {
+  /* border-bottom: 1px solid #ccc; */
+  padding: 0.5rem 0;
+}
+
+.accordion__item [role="region"] {
+  padding: 0.5rem;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+}
