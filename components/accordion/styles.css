@@ -1,0 +1,7 @@
+.accordion__item [role="region"] {
+  display: none;
+}
+
+.accordion__item:has(button[aria-expanded="true"]) [role="region"] {
+  display: block;
+}

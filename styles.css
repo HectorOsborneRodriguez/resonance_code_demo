@@ -1,0 +1,22 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 2rem;
+  line-height: 1.6;
+}
+h1 {
+  color: #333;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  margin: 0.5rem 0;
+}
+a {
+  text-decoration: none;
+  color: #1a73e8;
+}
+a:hover {
+  text-decoration: underline;
+}
