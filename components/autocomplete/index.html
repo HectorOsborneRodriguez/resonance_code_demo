@@ -3,55 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Accessible Autocomplete Demo</title>
+    <title>Autocomplete Demo - Resonance</title>
+    <link rel="stylesheet" href="/assets/style/global.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>Accessible Autocomplete Demo</h1>
+    <main>
+      <h1>Autocomplete Demo</h1>
 
-    <div class="autocomplete-container">
-      <label for="autocomplete">Search for a country:</label>
-      <input
-        type="text"
-        id="autocomplete"
-        name="autocomplete"
-        role="combobox"
-        aria-autocomplete="list"
-        aria-expanded="false"
-        aria-controls="autocompleteList"
-        aria-activedescendant=""
-        placeholder="Start typing a country"
-      />
+      <div class="autocomplete-container">
+        <label for="autocomplete">Search for a country:</label>
+        <input
+          type="text"
+          id="autocomplete"
+          name="autocomplete"
+          role="combobox"
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls="autocompleteList"
+          aria-activedescendant=""
+          placeholder="Start typing a country"
+        />
 
-      <ul
-        id="autocompleteList"
-        role="listbox"
-        class="autocomplete-suggestions"
-        hidden
-      >
-        <li id="option-af" role="option">Afghanistan</li>
-        <li id="option-al" role="option">Albania</li>
-        <li id="option-dz" role="option">Algeria</li>
-        <li id="option-as" role="option">American Samoa</li>
-        <li id="option-ad" role="option">Andorra</li>
-        <li id="option-ao" role="option">Angola</li>
-        <li id="no-results" role="option" aria-disabled="true" hidden>
-          No results found
-        </li>
-      </ul>
-    </div>
+        <ul
+          id="autocompleteList"
+          role="listbox"
+          class="autocomplete-suggestions"
+          hidden
+        >
+          <li id="option-af" role="option">Afghanistan</li>
+          <li id="option-al" role="option">Albania</li>
+          <li id="option-dz" role="option">Algeria</li>
+          <li id="option-as" role="option">American Samoa</li>
+          <li id="option-ad" role="option">Andorra</li>
+          <li id="option-ao" role="option">Angola</li>
+          <li id="no-results" role="option" aria-disabled="true" hidden>
+            No results found
+          </li>
+        </ul>
+      </div>
 
-    <!-- Live region for SR announcements -->
-    <div
-      id="autocompleteStatus"
-      class="visually-hidden"
-      role="status"
-      aria-live="polite"
-    ></div>
+      <!-- Live region for SR announcements -->
+      <div
+        id="autocompleteStatus"
+        class="visually-hidden"
+        role="status"
+        aria-live="polite"
+      ></div>
 
-
-    <a href="/index.html">Back to Component Library</a>
-
+      <div class="section">
+        <h2>Resources</h2>
+        <ul>
+          <li><a href="/index.html">Back to Home</a></li>
+          <li>
+            <a
+              href="https://github.com/HectorOsborneRodriguez/resonance_code_demo"
+              >GitHub Code</a
+            >
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; Accenture - Resonance</p>
+    </footer>
     <script src="autocomplete.js"></script>
   </body>
 </html>
