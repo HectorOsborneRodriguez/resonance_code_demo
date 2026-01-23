@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header>
+      <a href="../../index.html" class="back-link">
+        <img src="../../assets/images/logo.svg" alt="Resonance Logo" />
+      </a>
+    </header>
     <main>
+      <div class="section">
       <h1>Accordion Demo</h1>
       <div class="accordion">
         <div class="accordion__item">
@@ -45,13 +51,15 @@
 
         <!-- Add more sections as needed -->
       </div>
+      </div>
 
       <div class="section">
         <h2>Resources</h2>
-        <ul>
-          <li><a href="../../index.html">Back to Home</a></li>
+        <ul class="btn-group">
+          <li><a class="btn btn-primary" href="../../index.html">Back to Home</a></li>
+          <li><a class="btn btn-primary" href="../../components/autocomplete/index.html">Next: Autocomplete</a></li>
           <li>
-            <a
+            <a  class="btn btn-secondary"
               href="https://github.com/HectorOsborneRodriguez/resonance_code_demo"
               >GitHub Code</a
             >

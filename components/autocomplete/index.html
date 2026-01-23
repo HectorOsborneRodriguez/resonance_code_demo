@@ -8,55 +8,62 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header>
+      <a href="../../index.html" class="back-link">
+        <img src="../../assets/images/logo.svg" alt="Resonance Logo" />
+      </a>
+    </header>
     <main>
-      <h1>Autocomplete Demo</h1>
+      <div class="section">
+        <h1>Autocomplete Demo</h1>
 
-      <div class="autocomplete-container">
-        <label for="autocomplete">Search for a country:</label>
-        <input
-          type="text"
-          id="autocomplete"
-          name="autocomplete"
-          role="combobox"
-          aria-autocomplete="list"
-          aria-expanded="false"
-          aria-controls="autocompleteList"
-          aria-activedescendant=""
-          placeholder="Start typing a country"
-        />
+        <div class="autocomplete-container">
+          <label for="autocomplete">Search for a country:</label>
+          <input
+            type="text"
+            id="autocomplete"
+            name="autocomplete"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-controls="autocompleteList"
+            aria-activedescendant=""
+            placeholder="Start typing a country"
+          />
 
-        <ul
-          id="autocompleteList"
-          role="listbox"
-          class="autocomplete-suggestions"
-          hidden
-        >
-          <li id="option-af" role="option">Afghanistan</li>
-          <li id="option-al" role="option">Albania</li>
-          <li id="option-dz" role="option">Algeria</li>
-          <li id="option-as" role="option">American Samoa</li>
-          <li id="option-ad" role="option">Andorra</li>
-          <li id="option-ao" role="option">Angola</li>
-          <li id="no-results" role="option" aria-disabled="true" hidden>
-            No results found
-          </li>
-        </ul>
+          <ul
+            id="autocompleteList"
+            role="listbox"
+            class="autocomplete-suggestions"
+            hidden
+          >
+            <li id="option-af" role="option">Afghanistan</li>
+            <li id="option-al" role="option">Albania</li>
+            <li id="option-dz" role="option">Algeria</li>
+            <li id="option-as" role="option">American Samoa</li>
+            <li id="option-ad" role="option">Andorra</li>
+            <li id="option-ao" role="option">Angola</li>
+            <li id="no-results" role="option" aria-disabled="true" hidden>
+              No results found
+            </li>
+          </ul>
+        </div>
+
+        <!-- Live region for SR announcements -->
+        <div
+          id="autocompleteStatus"
+          class="visually-hidden"
+          role="status"
+          aria-live="polite"
+        ></div>
       </div>
-
-      <!-- Live region for SR announcements -->
-      <div
-        id="autocompleteStatus"
-        class="visually-hidden"
-        role="status"
-        aria-live="polite"
-      ></div>
-
       <div class="section">
         <h2>Resources</h2>
-        <ul>
-          <li><a href="../../index.html">Back to Home</a></li>
+        <ul class="btn-group">
+          <li><a class="btn btn-primary" href="../../index.html">Back to Home</a></li>
+          <li><a class="btn btn-primary" href="../../components/accordion/index.html">Prev: Accordion</a></li>
           <li>
-            <a
+            <a  class="btn btn-secondary"
               href="https://github.com/HectorOsborneRodriguez/resonance_code_demo"
               >GitHub Code</a
             >
