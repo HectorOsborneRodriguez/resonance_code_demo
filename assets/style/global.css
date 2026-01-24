@@ -1,14 +1,26 @@
 :root {
+
+
+  --color-black: #111;
+
   --primary-color: #222;
   --primary-color-inverse: #fefefe;
   --secondary-color: #f1f3f4;
-  --text-color: #222;
-  --background-color: #f9f9f9;
+  --text-color: #444;
+  --background-color: #f8f8f8;
   --border-radius: 4px;
   --transition-duration: 0.3s;
 
   --border-color: #ccc;
   --focus-color: #2767b0;
+  --hover-color: var(--color-black);
+
+  --color-underlined: 34,34,34;
+
+  --font-size-base: 16px;
+  --font-size-large: 18px;
+  --font-size-small: 14px;
+  --font-size-xsmall: 12px;
 }
 
 
@@ -27,14 +39,7 @@ body {
   padding: 2rem;
 }
 
-/* Links */
-a {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
+
 
 /* Utility classes */
 .visually-hidden {
@@ -75,17 +80,41 @@ li {
 }
 
 a {
-  text-decoration: none;
   color: var(--primary-color);
+  position: relative;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--hover-color)
 }
 
 
+a.link-underlined {
+    text-decoration: none;
+}
+a.link-underlined:before {
+    content: "";
+    position: absolute;
+    bottom: -0.2em;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, rgb(var(--color-underlined)) 45%, rgba(var(--color-underlined), 0.3) 55%);
+    background-size: 220% 100%;
+    background-position: 100% 50%;
+    transition: .3s ease-out;
+}
+a.link-underlined:hover:before {
+    background-position: 0 50%;
+}
+
+
+
+
+
 .section {
-    border-top: 1px solid #var(--border-color);
+    border-top: 1px solid var(--border-color);
     margin-top: 1rem;
     padding: 1rem 0 0;
 }
@@ -133,6 +162,7 @@ header {
 
 .btn-primary:hover {
     background-color: #444;
+    color: var(--primary-color-inverse);
 }
 
 .btn-secondary {
