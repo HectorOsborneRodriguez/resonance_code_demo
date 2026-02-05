@@ -1,0 +1,37 @@
+<!--
+  Component-only reference
+  Conforms to:
+    - components/card-list/card-list.md
+    - components/card-list/card-list.tc.md
+-->
+
+<section class="card-list" aria-labelledby="cl-heading" data-card-list>
+  <h2 id="cl-heading" class="card-list__heading">Recommended for you</h2>
+
+  <p class="card-list__hint" id="cl-hint">
+    Use Arrow Down/Up to move between cards.
+  </p>
+
+  <!-- Live status: announces count and "x of y" -->
+  <p class="sr-only" aria-live="polite" aria-atomic="true" data-status></p>
+
+  <ul class="card-list__items" aria-describedby="cl-hint" data-items>
+    <li class="card" data-card>
+      <h3 class="card__title">Card 1</h3>
+      <p class="card__body">Short description for card 1.</p>
+      <a class="card__link" href="#">Open</a>
+    </li>
+
+    <li class="card" data-card>
+      <h3 class="card__title">Card 2</h3>
+      <p class="card__body">Short description for card 2.</p>
+      <a class="card__link" href="#">Open</a>
+    </li>
+
+    <li class="card" data-card>
+      <h3 class="card__title">Card 3</h3>
+      <p class="card__body">Short description for card 3.</p>
+      <a class="card__link" href="#">Open</a>
+    </li>
+  </ul>
+</section>

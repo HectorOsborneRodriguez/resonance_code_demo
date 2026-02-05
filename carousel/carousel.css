@@ -1,0 +1,57 @@
+.carousel {
+  max-width: 760px;
+  margin: 2rem auto;
+  font-family: system-ui, sans-serif;
+}
+
+.carousel__controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.carousel__btn,
+.carousel__dot {
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #666;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.carousel__btn:focus-visible,
+.carousel__dot:focus-visible,
+.carousel__link:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+.carousel__slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #bbb;
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+.carousel__dots {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

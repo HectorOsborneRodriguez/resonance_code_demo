@@ -1,0 +1,26 @@
+<div class="component-wrapper">
+  <h1>Autocomplete</h1>
+
+  <p class="helper" id="city-helper">Type a city name and use arrow keys to navigate suggestions.</p>
+
+  <div class="field">
+    <label id="city-label" for="city-input">City</label>
+    <input
+      id="city-input"
+      class="auto-input"
+      type="text"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-haspopup="listbox"
+      aria-expanded="false"
+      aria-controls="city-listbox"
+      aria-labelledby="city-label"
+      aria-describedby="city-helper city-live"
+      autocomplete="off"
+    />
+  </div>
+
+  <div id="city-live" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+  <ul id="city-listbox" class="listbox" role="listbox" aria-labelledby="city-label" hidden></ul>
+</div>

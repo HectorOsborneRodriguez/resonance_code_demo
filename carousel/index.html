@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carousel — Full Page Test Harness</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="./carousel.css" />
+</head>
+<body>
+  <main>
+    <h1>Carousel — Accessibility Test Harness</h1>
+    <p>This page loads the Carousel reference implementation in full page context.</p>
+    <div id="mount"></div>
+  </main>
+
+  <script>
+    fetch('./carousel.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('mount').innerHTML = html;
+
+        const script = document.createElement('script');
+        script.src = './carousel.js';
+        document.body.appendChild(script);
+      });
+  </script>
+</body>
+</html>

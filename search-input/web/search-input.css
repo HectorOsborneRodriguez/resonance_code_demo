@@ -1,0 +1,6 @@
+.search { max-width: 520px; }
+.search__row { display: flex; gap: 8px; align-items: center; }
+input { flex: 1; padding: 8px; min-height: 44px; }
+button { min-height: 44px; padding: 8px 12px; }
+:focus { outline: 3px solid #000; outline-offset: 2px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }

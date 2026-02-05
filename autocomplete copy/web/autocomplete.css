@@ -1,0 +1,68 @@
+/* Basic page styling (kept minimal and high-contrast) */
+.page {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  padding: 24px;
+  line-height: 1.4;
+}
+
+.card {
+  max-width: 520px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.auto-input {
+  min-height: 36px; /* >= 24px target size */
+  padding: 8px 10px;
+  border: 2px solid #333;
+  border-radius: 6px;
+}
+
+.auto-input:focus {
+  outline: 3px solid #000;
+  outline-offset: 2px;
+}
+
+.listbox {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 2px solid #333;
+  border-radius: 6px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.option {
+  padding: 8px 10px;
+}
+
+.option[aria-selected="true"] {
+  background: #e6e6e6;
+}
+
+.option.active {
+  outline: 2px solid #000;
+  outline-offset: -2px;
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.helper {
+  margin: 0;
+}
