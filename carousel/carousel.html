@@ -1,0 +1,54 @@
+<section class="carousel" aria-labelledby="car-title" data-carousel>
+  <h2 id="car-title" class="carousel__title">Featured articles</h2>
+
+  <!-- Instructions (SR only) -->
+  <p class="sr-only" id="car-instructions">
+    Carousel. Use the Previous and Next buttons to change slides. Use Tab to reach the slide link.
+  </p>
+
+  <!-- Controls BEFORE pattern: Prev, Next, then slide link -->
+  <div class="carousel__controls">
+    <button type="button" class="carousel__btn" data-prev aria-label="Previous slide">
+      Prev
+    </button>
+
+    <button type="button" class="carousel__btn" data-next aria-label="Next slide">
+      Next
+    </button>
+
+    <!-- Optional autoplay pause -->
+    <button type="button" class="carousel__btn" data-pause aria-pressed="false" aria-label="Pause carousel">
+      Pause
+    </button>
+  </div>
+
+  <!-- Live status: slide position -->
+  <p class="sr-only" aria-live="polite" aria-atomic="true" data-status></p>
+
+  <ul class="carousel__slides" aria-describedby="car-instructions" data-slides>
+    <li class="carousel__slide" data-slide data-index="0">
+      <h3 class="carousel__slideTitle">Slide 1</h3>
+      <p class="carousel__text">Intro to accessibility testing.</p>
+      <a class="carousel__link" href="#s1" data-link>Read more</a>
+    </li>
+
+    <li class="carousel__slide" data-slide data-index="1" hidden>
+      <h3 class="carousel__slideTitle">Slide 2</h3>
+      <p class="carousel__text">Designing focus states.</p>
+      <a class="carousel__link" href="#s2" data-link>Read more</a>
+    </li>
+
+    <li class="carousel__slide" data-slide data-index="2" hidden>
+      <h3 class="carousel__slideTitle">Slide 3</h3>
+      <p class="carousel__text">ARIA patterns: when and how.</p>
+      <a class="carousel__link" href="#s3" data-link>Read more</a>
+    </li>
+  </ul>
+
+  <!-- Optional dots -->
+  <ul class="carousel__dots" data-dots>
+    <li><button type="button" class="carousel__dot" data-dot data-to="0" aria-current="true" aria-label="Go to slide 1">1</button></li>
+    <li><button type="button" class="carousel__dot" data-dot data-to="1" aria-label="Go to slide 2">2</button></li>
+    <li><button type="button" class="carousel__dot" data-dot data-to="2" aria-label="Go to slide 3">3</button></li>
+  </ul>
+</section>
