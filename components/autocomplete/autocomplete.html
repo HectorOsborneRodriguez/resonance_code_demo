@@ -1,0 +1,46 @@
+<!--
+  Component-only reference
+  Conforms to:
+    - components/autocomplete/autocomplete.md
+    - components/autocomplete/autocomplete.tc.md
+-->
+
+<div class="autocomplete-container">
+  <label for="autocomplete">Search for a country:</label>
+  <input
+    type="text"
+    id="autocomplete"
+    name="autocomplete"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-expanded="false"
+    aria-controls="autocompleteList"
+    aria-activedescendant=""
+    placeholder="Start typing a country"
+  />
+
+  <ul
+    id="autocompleteList"
+    role="listbox"
+    class="autocomplete-suggestions"
+    hidden
+  >
+    <li id="option-af" role="option">Afghanistan</li>
+    <li id="option-al" role="option">Albania</li>
+    <li id="option-dz" role="option">Algeria</li>
+    <li id="option-as" role="option">American Samoa</li>
+    <li id="option-ad" role="option">Andorra</li>
+    <li id="option-ao" role="option">Angola</li>
+    <li id="no-results" role="option" aria-disabled="true" hidden>
+      No results found
+    </li>
+  </ul>
+</div>
+
+<!-- Live region for SR announcements -->
+<div
+  id="autocompleteStatus"
+  class="visually-hidden"
+  role="status"
+  aria-live="polite"
+></div>

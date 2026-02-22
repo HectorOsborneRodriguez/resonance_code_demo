@@ -5,8 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autocomplete Demo - Resonance</title>
     <link rel="stylesheet" href="../../assets/style/global.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="../../assets/images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="autocomplete.css" />
+    <link
+      rel="icon"
+      href="../../assets/images/favicon.ico"
+      type="image/x-icon"
+    />
   </head>
   <body>
     <header>
@@ -17,55 +21,27 @@
     <main>
       <div class="section">
         <h1>Autocomplete Demo</h1>
-
-        <div class="autocomplete-container">
-          <label for="autocomplete">Search for a country:</label>
-          <input
-            type="text"
-            id="autocomplete"
-            name="autocomplete"
-            role="combobox"
-            aria-autocomplete="list"
-            aria-expanded="false"
-            aria-controls="autocompleteList"
-            aria-activedescendant=""
-            placeholder="Start typing a country"
-          />
-
-          <ul
-            id="autocompleteList"
-            role="listbox"
-            class="autocomplete-suggestions"
-            hidden
-          >
-            <li id="option-af" role="option">Afghanistan</li>
-            <li id="option-al" role="option">Albania</li>
-            <li id="option-dz" role="option">Algeria</li>
-            <li id="option-as" role="option">American Samoa</li>
-            <li id="option-ad" role="option">Andorra</li>
-            <li id="option-ao" role="option">Angola</li>
-            <li id="no-results" role="option" aria-disabled="true" hidden>
-              No results found
-            </li>
-          </ul>
-        </div>
-
-        <!-- Live region for SR announcements -->
-        <div
-          id="autocompleteStatus"
-          class="visually-hidden"
-          role="status"
-          aria-live="polite"
-        ></div>
+        <div id="mount"></div>
       </div>
+
+      <div class="section">
+        <h2>HTML Code</h2>
+        <button class="code-preview__toggle" aria-expanded="false" aria-controls="code-preview">Show Code</button>
+        <div class="code-preview" id="code-preview" hidden>
+          <pre><code id="code-output"></code></pre>
+          <button class="code-preview__copy">Copy</button>
+        </div>
+      </div>
+
       <div class="section">
         <h2>Resources</h2>
         <ul class="btn-group">
-          <li><a class="btn btn-primary" href="../../index.html">Back to Home</a></li>
-          <li><a class="btn btn-primary" href="../../components/accordion/index.html">Prev: Accordion</a></li>
-          <li><a class="btn btn-primary" href="../../components/breadcrumbs/index.html">Next: Breadcrumbs</a></li>
           <li>
-            <a  class="btn btn-secondary"
+            <a class="btn btn-primary" href="../../index.html">Back to Home</a>
+          </li>
+          <li>
+            <a
+              class="btn btn-secondary"
               href="https://github.com/HectorOsborneRodriguez/resonance_code_demo"
               >GitHub Code</a
             >
@@ -73,9 +49,43 @@
         </ul>
       </div>
     </main>
+
     <footer>
       <p>&copy; Accenture - Resonance</p>
     </footer>
-    <script src="autocomplete.js"></script>
+    <script>
+      fetch("./autocomplete.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("mount").innerHTML = html;
+
+          // Populate code preview (strip leading comment block)
+          var raw = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
+          document.getElementById("code-output").textContent = raw;
+
+          // Toggle show/hide
+          var toggle = document.querySelector(".code-preview__toggle");
+          var preview = document.getElementById("code-preview");
+          toggle.addEventListener("click", function () {
+            var expanded = preview.hidden;
+            preview.hidden = !expanded;
+            toggle.textContent = expanded ? "Hide Code" : "Show Code";
+            toggle.setAttribute("aria-expanded", expanded);
+          });
+
+          // Copy to clipboard
+          var copyBtn = document.querySelector(".code-preview__copy");
+          copyBtn.addEventListener("click", function () {
+            navigator.clipboard.writeText(raw).then(function () {
+              copyBtn.textContent = "Copied!";
+              setTimeout(function () { copyBtn.textContent = "Copy"; }, 2000);
+            });
+          });
+
+          var s = document.createElement("script");
+          s.src = "./autocomplete.js";
+          document.body.appendChild(s);
+        });
+    </script>
   </body>
 </html>

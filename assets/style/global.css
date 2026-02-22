@@ -174,3 +174,50 @@ header {
 .btn-secondary:hover {
     background-color: #ddd;
 }
+
+
+/* Code preview */
+.code-preview__toggle {
+    font-size: var(--font-size-small);
+    padding: 0.4rem 0.8rem;
+    background: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+}
+
+.code-preview__toggle:hover {
+    background-color: #ddd;
+}
+
+.code-preview pre {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    overflow-x: auto;
+    font-size: var(--font-size-small);
+    line-height: 1.5;
+    margin: 0.75rem 0;
+}
+
+.code-preview code {
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    white-space: pre;
+}
+
+.code-preview__copy {
+    font-size: var(--font-size-xsmall);
+    padding: 0.3rem 0.6rem;
+    background: var(--primary-color);
+    color: var(--primary-color-inverse);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+}
+
+.code-preview__copy:hover {
+    background-color: #444;
+}
