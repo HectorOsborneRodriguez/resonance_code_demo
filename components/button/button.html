@@ -4,43 +4,41 @@
     - components/button/button.md
     - components/button/button.tc.md
 -->
+<div class="section">
+  <section class="btn-wrapper" data-btn-demo>
+    <!-- Standard button -->
+    <button class="btn btn-demo" type="button" data-action="toast">Save changes</button>
 
-<section class="btn-demo" data-btn-demo>
-  <h2 class="btn-demo__title">Button — Reference Implementation</h2>
+    <!-- Button with decorative icon -->
+    <button class="btn btn-demo" type="button" data-action="toast">
+      <span class="btn__icon" aria-hidden="true">★</span>
+      Favorite
+    </button>
 
-  <!-- Standard button -->
-  <button class="btn" type="button" data-action="toast">
-    Save changes
-  </button>
+    <!-- Stateful toggle button (expanded/collapsed) -->
+    <button
+      class="btn btn-demo"
+      type="button"
+      id="btn-toggle"
+      aria-expanded="false"
+      aria-controls="btn-panel"
+      data-action="toggle"
+    >
+      Details
+      <span class="btn__icon" aria-hidden="true">▾</span>
+    </button>
 
-  <!-- Button with decorative icon -->
-  <button class="btn" type="button" data-action="toast">
-    <span class="btn__icon" aria-hidden="true">★</span>
-    Favorite
-  </button>
+    <div id="btn-panel" class="btn-panel" hidden>
+      <p>This region is controlled by the toggle button.</p>
+      <a href="#" class="btn-panel__link">Focusable link in region</a>
+    </div>
 
-  <!-- Stateful toggle button (expanded/collapsed) -->
-  <button
-    class="btn"
-    type="button"
-    id="btn-toggle"
-    aria-expanded="false"
-    aria-controls="btn-panel"
-    data-action="toggle"
-  >
-    Details
-    <span class="btn__icon" aria-hidden="true">▾</span>
-  </button>
-
-  <div
-    id="btn-panel"
-    class="btn-panel"
-    hidden
-  >
-    <p>This region is controlled by the toggle button.</p>
-    <a href="#" class="btn-panel__link">Focusable link in region</a>
-  </div>
-
-  <!-- Result area for demo action -->
-  <p class="btn-demo__status" aria-live="polite" aria-atomic="true" data-status></p>
-</section>
+    <!-- Result area for demo action -->
+    <p
+      class="btn-demo__status"
+      aria-live="polite"
+      aria-atomic="true"
+      data-status
+    ></p>
+  </section>
+</div>

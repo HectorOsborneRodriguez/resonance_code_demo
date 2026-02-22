@@ -1,0 +1,34 @@
+<!--
+  Component-only reference
+  Conforms to:
+    - components/combobox/combobox.md
+    - components/combobox/combobox.tc.md
+-->
+
+<section>
+  <label id="cbx-label" for="cbx-input">City</label>
+  <input
+    id="cbx-input"
+    class="combobox"
+    type="text"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-labelledby="cbx-label"
+    aria-controls="cbx-listbox"
+    aria-expanded="false"
+    aria-describedby="cbx-hint"
+    autocomplete="off"
+    data-cbx="input"
+  />
+
+  <div class="hint" id="cbx-hint" data-cbx="hint">Type to filter, or press Arrow Down to open.</div>
+
+  <div
+    id="cbx-listbox"
+    class="listbox"
+    role="listbox"
+    aria-labelledby="cbx-label"
+    hidden
+    data-cbx="listbox"
+  ></div>
+</section>

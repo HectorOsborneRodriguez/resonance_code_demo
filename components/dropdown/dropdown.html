@@ -1,0 +1,39 @@
+<!--
+  Component-only reference
+  Conforms to:
+    - components/dropdown/dropdown.md
+    - components/dropdown/dropdown.tc.md
+-->
+
+<div class="dropdown" data-dropdown>
+  <span id="drp-label" class="dropdown__label">Select a city</span>
+
+  <div
+    id="drp-trigger"
+    class="dropdown__trigger"
+    role="combobox"
+    aria-haspopup="listbox"
+    aria-labelledby="drp-label"
+    aria-controls="drp-listbox"
+    aria-expanded="false"
+    aria-activedescendant=""
+    tabindex="0"
+  >
+    <span class="dropdown__value" data-value>Select…</span>
+    <span class="dropdown__icon" aria-hidden="true">▾</span>
+  </div>
+
+  <ul
+    id="drp-listbox"
+    class="dropdown__listbox"
+    role="listbox"
+    aria-labelledby="drp-label"
+    hidden
+  >
+    <li id="opt-ott" role="option" class="dropdown__option" aria-selected="false">Ottawa</li>
+    <li id="opt-mon" role="option" class="dropdown__option" aria-selected="false">Montreal</li>
+    <li id="opt-tor" role="option" class="dropdown__option" aria-selected="false">Toronto</li>
+  </ul>
+
+  <p class="dropdown__help" id="drp-help">Use Arrow keys to move, Enter/Space to select, Escape to close.</p>
+</div>
