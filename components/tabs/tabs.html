@@ -1,0 +1,140 @@
+<!--
+  Component-only reference
+  Conforms to:
+   - components/tabs/tabs.md
+   - components/tabs/tabs.tc.md
+  This markup includes data-* hooks for agents and an embedded manifest.
+-->
+
+<!-- Hook #2: Self-descriptor manifest for agents/CI -->
+<script type="application/json" id="component-manifest">
+{
+  "component": "Tabs",
+  "version": "1.0.0",
+  "artifact": "example-web",
+  "provenance": {
+    "ac": "components/tabs/tabs.md",
+    "tc": "components/tabs/tabs.tc.md",
+    "how": "components/tabs/tabs.how.md",
+    "qa": "components/tabs/tabs.qa.md"
+  },
+  "signals_vocabulary": ["DOM", "AX_TREE", "VISUAL", "SR", "INPUT"],
+  "mappings": {
+    "ac": [
+      "AC-TAB-SEM-LST-01","AC-TAB-SEM-LST-02",
+      "AC-TAB-SEM-TAB-01","AC-TAB-SEM-TAB-02","AC-TAB-SEM-TAB-03","AC-TAB-SEM-TAB-04",
+      "AC-TAB-STA-TAB-05","AC-TAB-STA-TAB-06",
+      "AC-TAB-KB-TAB-07","AC-TAB-KB-TAB-08","AC-TAB-KB-TAB-09","AC-TAB-KB-TAB-10",
+      "AC-TAB-VIS-TAB-11","AC-TAB-VIS-TAB-12","AC-TAB-VIS-TAB-13","AC-TAB-VIS-TAB-14",
+      "AC-TAB-SEM-PNL-01","AC-TAB-SEM-PNL-02",
+      "AC-TAB-KB-PNL-03","AC-TAB-KB-PNL-04",
+      "AC-TAB-VIS-PNL-05","AC-TAB-VIS-PNL-06"
+    ],
+    "tc": [
+      "TC-TAB-SEM-LST-01","TC-TAB-SEM-LST-02",
+      "TC-TAB-SEM-TAB-01","TC-TAB-SEM-TAB-02","TC-TAB-SEM-TAB-03","TC-TAB-SEM-TAB-04",
+      "TC-TAB-STA-TAB-01","TC-TAB-STA-TAB-02",
+      "TC-TAB-KB-TAB-01","TC-TAB-KB-TAB-02","TC-TAB-KB-TAB-03","TC-TAB-KB-TAB-04",
+      "TC-TAB-KB-PNL-01","TC-TAB-KB-PNL-02",
+      "TC-TAB-SEM-PNL-01","TC-TAB-SEM-PNL-02",
+      "TC-TAB-VIS-TAB-01","TC-TAB-VIS-TAB-02","TC-TAB-VIS-TAB-03","TC-TAB-VIS-TAB-04",
+      "TC-TAB-VIS-PNL-01","TC-TAB-VIS-PNL-02",
+      "TC-TAB-SR-TAB-01","TC-TAB-SR-TAB-02","TC-TAB-SR-TAB-03",
+      "TC-TAB-SR-PNL-01"
+    ]
+  }
+}
+</script>
+
+<!-- Hook #1: data-* anchors for agent tooling -->
+<div
+  class="tabs"
+  id="example-tabs"
+  data-component="tabs"
+  data-acc-role="group"
+  data-acc-id="tabs-1"
+>
+  <div
+    role="tablist"
+    aria-label="Sample Tabs"
+    class="tabs__list"
+    data-acc-role="tablist"
+    data-acc-id="tablist-1"
+  >
+    <button
+      id="tab-1"
+      role="tab"
+      aria-selected="true"
+      aria-controls="panel-1"
+      tabindex="0"
+      class="tabs__tab tabs__tab--selected"
+      data-acc-role="tab"
+      data-acc-id="tab-1"
+    >
+      Tab 1
+    </button>
+    <button
+      id="tab-2"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-2"
+      tabindex="-1"
+      class="tabs__tab"
+      data-acc-role="tab"
+      data-acc-id="tab-2"
+    >
+      Tab 2
+    </button>
+    <button
+      id="tab-3"
+      role="tab"
+      aria-selected="false"
+      aria-controls="panel-3"
+      tabindex="-1"
+      class="tabs__tab"
+      data-acc-role="tab"
+      data-acc-id="tab-3"
+    >
+      Tab 3
+    </button>
+  </div>
+
+  <div
+    id="panel-1"
+    role="tabpanel"
+    aria-labelledby="tab-1"
+    tabindex="0"
+    class="tabs__panel"
+    data-acc-role="panel"
+    data-acc-id="panel-1"
+  >
+    <p>Content for Tab 1. This panel contains general information.</p>
+    <a href="#">Focusable link inside panel 1</a>
+  </div>
+  <div
+    id="panel-2"
+    role="tabpanel"
+    aria-labelledby="tab-2"
+    tabindex="0"
+    class="tabs__panel"
+    hidden
+    data-acc-role="panel"
+    data-acc-id="panel-2"
+  >
+    <p>Content for Tab 2. This panel has different details.</p>
+    <button type="button">Focusable button inside panel 2</button>
+  </div>
+  <div
+    id="panel-3"
+    role="tabpanel"
+    aria-labelledby="tab-3"
+    tabindex="0"
+    class="tabs__panel"
+    hidden
+    data-acc-role="panel"
+    data-acc-id="panel-3"
+  >
+    <p>Content for Tab 3. This panel has additional content.</p>
+    <input type="text" placeholder="Focusable input inside panel 3" />
+  </div>
+</div>

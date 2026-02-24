@@ -1,0 +1,107 @@
+<!--
+  Component-only reference
+  Conforms to:
+    - components/video/video.md
+    - components/video/video.tc.md
+-->
+
+<!--
+  Component manifest:
+  {
+    "component": "Video",
+    "code": "VID",
+    "version": "1.0.0",
+    "conforms_to": {
+      "ac": "components/video/video.md",
+      "tc": "components/video/video.tc.md",
+      "qa": "components/video/video.qa.md"
+    },
+    "elements": {
+      "PLR": "player",
+      "CTL": "controls",
+      "CAP": "captions",
+      "TRS": "transcript",
+      "ADC": "audio-description"
+    }
+  }
+-->
+
+<section
+  class="vid-demo"
+  data-vid-demo
+  aria-label="Video player"
+  data-component="video"
+>
+  <h2 class="vid-demo__title">Video — Reference Implementation</h2>
+
+  <!-- Video player -->
+  <div class="vid-player" data-vid-player>
+    <video
+      class="vid-player__video"
+      data-vid-element
+      controls
+      preload="metadata"
+      poster=""
+      aria-label="Sample accessible video"
+      data-hook-plr="video-element"
+    >
+      <!--
+        Replace src with a real video file path.
+        The source below is a placeholder for reference.
+      -->
+      <source src="sample-video.mp4" type="video/mp4" />
+
+      <!-- Captions track -->
+      <track
+        kind="captions"
+        src="captions-en.vtt"
+        srclang="en"
+        label="English captions"
+        default
+        data-hook-cap="captions-track"
+      />
+
+      <!-- Audio descriptions track (described audio) -->
+      <track
+        kind="descriptions"
+        src="descriptions-en.vtt"
+        srclang="en"
+        label="English audio descriptions"
+        data-hook-adc="descriptions-track"
+      />
+
+      Your browser does not support the video element.
+    </video>
+  </div>
+
+  <!-- Transcript section -->
+  <details
+    class="vid-transcript"
+    data-vid-transcript
+    data-hook-trs="transcript-section"
+  >
+    <summary class="vid-transcript__toggle">
+      Transcript
+    </summary>
+    <div class="vid-transcript__content">
+      <p>
+        [Speaker 1]: Welcome to this demonstration of an accessible video component.
+        This video shows how captions, transcripts, and audio descriptions work together
+        to provide an inclusive media experience.
+      </p>
+      <p>
+        [Speaker 1]: Captions appear on screen for hearing-impaired users.
+        Audio descriptions narrate meaningful visual content for visually-impaired users.
+        And this transcript provides a full text alternative for the audio content.
+      </p>
+    </div>
+  </details>
+
+  <!-- Status area for live announcements -->
+  <p
+    class="vid-demo__status"
+    aria-live="polite"
+    aria-atomic="true"
+    data-vid-status
+  ></p>
+</section>

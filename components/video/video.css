@@ -1,0 +1,106 @@
+.vid-demo {
+  max-width: 640px;
+  margin: 2rem auto;
+  font-family: system-ui, sans-serif;
+}
+
+.vid-demo__title {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Video player ── */
+
+.vid-player {
+  position: relative;
+  background: #000;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.vid-player__video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+  Native browser controls inherit focus styles.
+  The rules below reinforce focus visibility for custom overlays
+  or when the video element itself receives focus.
+*/
+.vid-player__video:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+/* ── Transcript ── */
+
+.vid-transcript {
+  margin-top: 1rem;
+  border: 1px solid #666;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.vid-transcript__toggle {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #111;
+  background: #f5f5f5;
+  list-style: revert;
+}
+
+/* Visible focus indicator — 3:1 contrast (#005fcc on #f5f5f5) */
+.vid-transcript__toggle:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: -3px;
+}
+
+.vid-transcript__content {
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+}
+
+.vid-transcript__content p {
+  margin: 0 0 0.75rem;
+}
+
+.vid-transcript__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Status area (live region) ── */
+
+.vid-demo__status {
+  margin-top: 1rem;
+  min-height: 1.25rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ── Captions styling (::cue pseudo-element) ── */
+
+/*
+  Caption contrast: white text on semi-transparent black background
+  meets the 3:1 minimum ratio (white #fff on rgba(0,0,0,0.8) ≈ #333).
+*/
+video::cue {
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 480px) {
+  .vid-demo {
+    margin: 1rem;
+  }
+}

@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mega Navigation Demo - Resonance</title>
+    <title>Toggle Switch Demo - Resonance</title>
     <link rel="stylesheet" href="../../assets/style/global.css" />
-    <link rel="stylesheet" href="mega-navigation.css" />
+    <link rel="stylesheet" href="toggle-switch.css" />
     <link
       rel="icon"
       href="../../assets/images/favicon.ico"
@@ -22,7 +22,7 @@
     </header>
     <main>
       <div class="section">
-        <h1>Mega Navigation Demo</h1>
+        <h1>Toggle Switch Demo</h1>
         <div id="mount"></div>
       </div>
 
@@ -72,25 +72,25 @@
 
     <script>
       // Fetch HTML fragment
-      fetch("./mega-navigation.html")
+      fetch("./toggle-switch.html")
         .then(function (r) { return r.text(); })
         .then(function (html) {
           document.getElementById("mount").innerHTML = html;
 
           // Populate HTML code preview (strip leading comment block)
-          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
+          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/g, "").replace(/<script type="application\/json"[\s\S]*?<\/script>\n*/g, "").trim();
           var codeHtml = document.getElementById("code-html");
           codeHtml.textContent = rawHtml;
           Prism.highlightElement(codeHtml);
 
           // Load component JS
           var s = document.createElement("script");
-          s.src = "./mega-navigation.js";
+          s.src = "./toggle-switch.js";
           document.body.appendChild(s);
         });
 
       // Fetch CSS
-      fetch("./mega-navigation.css")
+      fetch("./toggle-switch.css")
         .then(function (r) { return r.text(); })
         .then(function (css) {
           var codeCss = document.getElementById("code-css");
@@ -99,7 +99,7 @@
         });
 
       // Fetch JS
-      fetch("./mega-navigation.js")
+      fetch("./toggle-switch.js")
         .then(function (r) { return r.text(); })
         .then(function (js) {
           var codeJs = document.getElementById("code-js");
