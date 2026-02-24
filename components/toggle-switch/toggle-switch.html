@@ -1,0 +1,127 @@
+<!--
+  Component-only reference
+  Conforms to:
+   - components/toggle-switch/toggle-switch.md
+   - components/toggle-switch/toggle-switch.tc.md
+  This markup includes data-* hooks for agents and an embedded manifest.
+-->
+
+<!-- Hook #2: Self-descriptor manifest for agents/CI -->
+<script type="application/json" id="component-manifest">
+{
+  "component": "Toggle Switch",
+  "version": "1.0.0",
+  "artifact": "example-web",
+  "provenance": {
+    "ac": "components/toggle-switch/toggle-switch.md",
+    "tc": "components/toggle-switch/toggle-switch.tc.md",
+    "how": "components/toggle-switch/toggle-switch.how.md",
+    "qa": "components/toggle-switch/toggle-switch.qa.md"
+  },
+  "signals_vocabulary": ["DOM", "AX_TREE", "VISUAL", "SR", "INPUT"],
+  "mappings": {
+    "ac": [
+      "AC-TGS-SEM-SWT-01","AC-TGS-SEM-SWT-02","AC-TGS-SEM-SWT-03",
+      "AC-TGS-STA-SWT-01","AC-TGS-STA-SWT-02","AC-TGS-STA-SWT-03","AC-TGS-STA-SWT-04",
+      "AC-TGS-KB-SWT-01","AC-TGS-KB-SWT-02","AC-TGS-KB-SWT-03","AC-TGS-KB-SWT-04",
+      "AC-TGS-VIS-SWT-01","AC-TGS-VIS-SWT-02","AC-TGS-VIS-SWT-03","AC-TGS-VIS-SWT-04","AC-TGS-VIS-SWT-05",
+      "AC-TGS-TCH-SWT-01","AC-TGS-TCH-SWT-02",
+      "AC-TGS-RSP-SWT-01","AC-TGS-RSP-SWT-02"
+    ],
+    "tc": [
+      "TC-TGS-SEM-01","TC-TGS-SEM-02","TC-TGS-SEM-03",
+      "TC-TGS-STA-01","TC-TGS-STA-02","TC-TGS-STA-03","TC-TGS-STA-04",
+      "TC-TGS-KB-01","TC-TGS-KB-02","TC-TGS-KB-03","TC-TGS-KB-04",
+      "TC-TGS-VIS-01","TC-TGS-VIS-02","TC-TGS-VIS-03","TC-TGS-VIS-04","TC-TGS-VIS-05",
+      "TC-TGS-SR-01","TC-TGS-SR-02",
+      "TC-TGS-TCH-01","TC-TGS-TCH-02",
+      "TC-TGS-RSP-01","TC-TGS-RSP-02"
+    ]
+  }
+}
+</script>
+
+<!-- Hook #1: data-* anchors for agent tooling -->
+<div
+  class="toggle-switch-group"
+  data-component="toggle-switch"
+  data-tgs-role="group"
+  data-tgs-id="toggle-switch-group-1"
+>
+  <!-- Example 1: Basic toggle switch (off by default) -->
+  <div class="toggle-switch" data-tgs-role="item" data-tgs-id="item-1">
+    <label id="switch1-label" for="switch1" data-tgs-role="label" data-tgs-id="label-1">Enable notifications</label>
+    <button
+      id="switch1"
+      role="switch"
+      type="button"
+      aria-checked="false"
+      aria-labelledby="switch1-label"
+      data-tgs-role="switch"
+      data-tgs-id="switch-1"
+    >
+      <span class="toggle-switch__track" aria-hidden="true">
+        <span class="toggle-switch__handle"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Example 2: Toggle switch (on by default) -->
+  <div class="toggle-switch" data-tgs-role="item" data-tgs-id="item-2">
+    <label id="switch2-label" for="switch2" data-tgs-role="label" data-tgs-id="label-2">Dark mode</label>
+    <button
+      id="switch2"
+      role="switch"
+      type="button"
+      aria-checked="true"
+      aria-labelledby="switch2-label"
+      data-tgs-role="switch"
+      data-tgs-id="switch-2"
+    >
+      <span class="toggle-switch__track" aria-hidden="true">
+        <span class="toggle-switch__handle"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Example 3: Toggle switch with hint text -->
+  <div class="toggle-switch" data-tgs-role="item" data-tgs-id="item-3">
+    <div>
+      <label id="switch3-label" for="switch3" data-tgs-role="label" data-tgs-id="label-3">Auto-save drafts</label>
+      <span class="hint" id="switch3-hint">Automatically save your work every 30 seconds.</span>
+    </div>
+    <button
+      id="switch3"
+      role="switch"
+      type="button"
+      aria-checked="false"
+      aria-labelledby="switch3-label"
+      aria-describedby="switch3-hint"
+      data-tgs-role="switch"
+      data-tgs-id="switch-3"
+    >
+      <span class="toggle-switch__track" aria-hidden="true">
+        <span class="toggle-switch__handle"></span>
+      </span>
+    </button>
+  </div>
+
+  <!-- Example 4: Disabled toggle switch -->
+  <div class="toggle-switch" data-tgs-role="item" data-tgs-id="item-4">
+    <label id="switch4-label" for="switch4" data-tgs-role="label" data-tgs-id="label-4">Experimental features</label>
+    <button
+      id="switch4"
+      role="switch"
+      type="button"
+      aria-checked="false"
+      aria-labelledby="switch4-label"
+      aria-disabled="true"
+      data-tgs-role="switch"
+      data-tgs-id="switch-4"
+    >
+      <span class="toggle-switch__track" aria-hidden="true">
+        <span class="toggle-switch__handle"></span>
+      </span>
+    </button>
+  </div>
+</div>

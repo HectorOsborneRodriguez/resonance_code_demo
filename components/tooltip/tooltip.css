@@ -1,0 +1,113 @@
+/* Reference styles for accessibility testing
+   Focus: visibility, contrast, layout, and hit area sizing
+   Covers both Pattern 1 (Hover/Focus) and Pattern 2 (Click/Enter/Space)
+*/
+
+/* -------------------------------------------------------
+   Wrapper: positions the panel relative to the trigger
+   ------------------------------------------------------- */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 0.5rem 0;
+}
+
+/* -------------------------------------------------------
+   Trigger: shared styles for both patterns
+   ------------------------------------------------------- */
+.tooltip-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Satisfy minimum target size */
+  min-width: 36px; /* 24px; */
+  min-height: 36px; /* 24px; */
+  padding: 0.25rem;
+
+  cursor: pointer;
+  color: #1a1a1a;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* Pattern 2 trigger is a <button>; reset native button chrome */
+.tooltip-trigger--click {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0.25rem;
+
+  cursor: pointer;
+  color: #1a1a1a;
+  border: 2px solid #555;
+  border-radius: 50%;
+  background: #fff;
+}
+
+/* -------------------------------------------------------
+   Focus indicator: visible and high contrast
+   ------------------------------------------------------- */
+.tooltip-trigger:focus-visible,
+.tooltip-trigger--click:focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-color, #005fcc);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+/* -------------------------------------------------------
+   Trigger icon
+   ------------------------------------------------------- */
+.tooltip-trigger__icon {
+  pointer-events: none;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
+
+/* -------------------------------------------------------
+   Tooltip panel: hidden by default, positioned below trigger
+   ------------------------------------------------------- */
+.tooltip-panel {
+  display: none;
+
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  min-width: 200px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fefefe;
+  border: 1px solid #555;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
+  z-index: 100;
+  white-space: normal;
+}
+
+/* Visible state: applied via JS */
+.tooltip-panel[data-visible="true"] {
+  display: block;
+}
+
+/* -------------------------------------------------------
+   Optional ergonomics for touch screens
+   ------------------------------------------------------- */
+@media (pointer: coarse) {
+  .tooltip-trigger,
+  .tooltip-trigger--click {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}

@@ -1,0 +1,124 @@
+<!--
+  Component-only reference
+  Conforms to:
+   - components/tooltip/tooltip.md
+   - components/tooltip/tooltip.tc.md
+  This markup includes data-* hooks for agents and an embedded manifest.
+-->
+
+<!-- Hook #2: Self-descriptor manifest for agents/CI -->
+<script type="application/json" id="component-manifest">
+{
+  "component": "Tooltip",
+  "version": "1.0.0",
+  "artifact": "example-web",
+  "provenance": {
+    "ac": "components/tooltip/tooltip.md",
+    "tc": "components/tooltip/tooltip.tc.md",
+    "how": "components/tooltip/tooltip.how.md",
+    "qa": "components/tooltip/tooltip.qa.md"
+  },
+  "signals_vocabulary": ["DOM", "AX_TREE", "VISUAL", "SR", "INPUT"],
+  "mappings": {
+    "ac": [
+      "AC-TTP-SEM-TRG-01","AC-TTP-SEM-TRG-02","AC-TTP-SEM-TRG-03",
+      "AC-TTP-KB-TRG-04","AC-TTP-VIS-TRG-05","AC-TTP-VIS-TRG-06",
+      "AC-TTP-SEM-PNL-01","AC-TTP-KB-PNL-02","AC-TTP-STA-PNL-03",
+      "AC-TTP-SEM-TRG-07","AC-TTP-SEM-TRG-08",
+      "AC-TTP-STA-TRG-09","AC-TTP-STA-TRG-10","AC-TTP-SEM-TRG-11",
+      "AC-TTP-KB-TRG-12","AC-TTP-KB-TRG-13","AC-TTP-KB-TRG-14",
+      "AC-TTP-VIS-TRG-15","AC-TTP-VIS-TRG-16",
+      "AC-TTP-KB-PNL-04","AC-TTP-STA-PNL-05",
+      "AC-TTP-VIS-BOTH-01","AC-TTP-VIS-BOTH-02","AC-TTP-VIS-BOTH-03"
+    ],
+    "tc": [
+      "TC-TTP-SEM-TRG-01","TC-TTP-SEM-TRG-02","TC-TTP-SEM-TRG-03",
+      "TC-TTP-SEM-PNL-01","TC-TTP-STA-PNL-01",
+      "TC-TTP-KB-TRG-01","TC-TTP-KB-PNL-01",
+      "TC-TTP-SEM-TRG-04","TC-TTP-SEM-TRG-05","TC-TTP-SEM-TRG-06",
+      "TC-TTP-STA-TRG-01","TC-TTP-STA-TRG-02","TC-TTP-STA-TRG-03","TC-TTP-STA-PNL-02",
+      "TC-TTP-KB-TRG-02","TC-TTP-KB-TRG-03","TC-TTP-KB-TRG-04","TC-TTP-KB-PNL-02",
+      "TC-TTP-VIS-TRG-01","TC-TTP-VIS-TRG-02",
+      "TC-TTP-VIS-BOTH-01","TC-TTP-VIS-BOTH-02",
+      "TC-TTP-SR-TRG-01","TC-TTP-SR-TRG-02","TC-TTP-SR-TRG-03","TC-TTP-SR-TRG-04"
+    ]
+  }
+}
+</script>
+
+<!-- ============================================================
+     Pattern 1: Hover / Focus
+     Trigger = <div tabindex="0">, Panel = role="tooltip"
+     ============================================================ -->
+
+<section
+  data-component="tooltip"
+  data-ttp-pattern="1"
+  data-ttp-id="pattern-1"
+>
+  <h2>Pattern 1 -- Hover / Focus</h2>
+
+  <p id="ttp-p1-context">Provide your email address for account recovery.</p>
+
+  <div class="tooltip-wrapper" data-ttp-role="wrapper" data-ttp-id="wrapper-p1">
+    <div
+      class="tooltip-trigger tooltip-trigger--hover"
+      id="ttp-p1-trigger"
+      tabindex="0"
+      aria-labelledby="ttp-p1-icon-title"
+      aria-describedby="ttp-p1-context ttp-p1-panel"
+      data-ttp-role="trigger"
+      data-ttp-id="trigger-p1"
+    >
+      <span>?</span>
+    </div>
+    <div
+      class="tooltip-panel"
+      id="ttp-p1-panel"
+      role="tooltip"
+      data-ttp-role="panel"
+      data-ttp-id="panel-p1"
+    >
+      We will only use your email to help you recover your account. We will never share it.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     Pattern 2: Click / Enter / Space
+     Trigger = <button>, aria-expanded, aria-controls
+     ============================================================ -->
+
+<section
+  data-component="tooltip"
+  data-ttp-pattern="2"
+  data-ttp-id="pattern-2"
+>
+  <h2>Pattern 2 -- Click / Enter / Space</h2>
+
+  <p id="ttp-p2-context">Choose a strong password.</p>
+
+  <div class="tooltip-wrapper" data-ttp-role="wrapper" data-ttp-id="wrapper-p2">
+    <button
+      class="tooltip-trigger tooltip-trigger--click"
+      id="ttp-p2-trigger"
+      type="button"
+      aria-label="More info"
+      aria-expanded="false"
+      aria-controls="ttp-p2-panel"
+      aria-describedby="ttp-p2-context ttp-p2-panel"
+      data-ttp-role="trigger"
+      data-ttp-id="trigger-p2"
+    >
+      <span>?</span>
+    </button>
+    <div
+      class="tooltip-panel"
+      id="ttp-p2-panel"
+      data-ttp-role="panel"
+      data-ttp-id="panel-p2"
+    >
+      Use at least 12 characters including uppercase, lowercase, numbers, and symbols.
+    </div>
+  </div>
+</section>

@@ -109,14 +109,14 @@
 
       // Tab switching
       var tabs = document.querySelectorAll(".code-tabs__tab");
-      var panels = document.querySelectorAll("[role='tabpanel']");
+      var codePanels = document.querySelectorAll("#panel-html, #panel-css, #panel-js");
       tabs.forEach(function (tab) {
         tab.addEventListener("click", function () {
           tabs.forEach(function (t) {
             t.classList.remove("code-tabs__tab--active");
             t.setAttribute("aria-selected", "false");
           });
-          panels.forEach(function (p) { p.hidden = true; });
+          codePanels.forEach(function (p) { p.hidden = true; });
           tab.classList.add("code-tabs__tab--active");
           tab.setAttribute("aria-selected", "true");
           document.getElementById("panel-" + tab.dataset.tab).hidden = false;

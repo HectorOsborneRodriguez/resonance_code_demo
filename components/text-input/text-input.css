@@ -1,0 +1,75 @@
+/* Reference styles for accessibility testing
+   Focus: visibility, contrast, layout, and hit area sizing
+*/
+
+.text-input-form {
+  max-width: 400px;
+  margin: 2rem auto;
+  font-family: system-ui, sans-serif;
+}
+
+.text-input {
+  margin-bottom: 1.5rem;
+}
+
+.text-input__label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.text-input__required {
+  color: #c00;
+}
+
+.text-input__input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 2px solid #767676;
+  border-radius: 4px;
+  background: #fff;
+
+  /* Satisfy ≥24×24 target size requirement */
+  min-height: 24px;
+}
+
+.text-input__input:focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-color, #005fcc);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
+
+.text-input__input[aria-invalid="true"] {
+  border-color: #c00;
+}
+
+.text-input__hint {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.text-input__error {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: #c00;
+  font-weight: 600;
+}
+
+.text-input__submit {
+  padding: 0.5rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  min-height: 24px;
+}
+
+.text-input__submit:focus-visible {
+  outline: var(--focus-ring-width, 3px) solid var(--focus-ring-color, #005fcc);
+  outline-offset: var(--focus-ring-offset, 2px);
+}
