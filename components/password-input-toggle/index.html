@@ -23,7 +23,7 @@
     <main>
       <div class="section">
         <h1>Password Input Toggle Demo</h1>
-        <div id="mount"></div>
+        <div class="mount"></div>
       </div>
 
       <div class="section">
@@ -35,15 +35,15 @@
         </div>
         <div class="code-preview" id="panel-html" role="tabpanel">
           <pre class="line-numbers"><code id="code-html" class="language-markup"></code></pre>
-          <button class="code-preview__copy" data-target="code-html">Copy</button>
+          <button class="code-preview__copy" data-target="code-html">Copy Code</button>
         </div>
         <div class="code-preview" id="panel-css" role="tabpanel" hidden>
           <pre class="line-numbers"><code id="code-css" class="language-css"></code></pre>
-          <button class="code-preview__copy" data-target="code-css">Copy</button>
+          <button class="code-preview__copy" data-target="code-css">Copy Code</button>
         </div>
         <div class="code-preview" id="panel-js" role="tabpanel" hidden>
           <pre class="line-numbers"><code id="code-js" class="language-javascript"></code></pre>
-          <button class="code-preview__copy" data-target="code-js">Copy</button>
+          <button class="code-preview__copy" data-target="code-js">Copy Code</button>
         </div>
       </div>
 
@@ -75,7 +75,7 @@
       fetch("./password-input-toggle.html")
         .then(function (r) { return r.text(); })
         .then(function (html) {
-          document.getElementById("mount").innerHTML = html;
+          document.querySelector(".mount").innerHTML = html;
 
           // Populate HTML code preview (strip leading comment block)
           var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
@@ -129,7 +129,7 @@
           var codeEl = document.getElementById(btn.dataset.target);
           navigator.clipboard.writeText(codeEl.textContent).then(function () {
             btn.textContent = "Copied!";
-            setTimeout(function () { btn.textContent = "Copy"; }, 2000);
+            setTimeout(function () { btn.textContent = "Copy Code"; }, 2000);
           });
         });
       });

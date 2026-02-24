@@ -21,29 +21,51 @@
       </a>
     </header>
     <main>
+      <h1>Breadcrumbs Demo</h1>
+
+      <!-- Scenario 1: Current page as a link -->
       <div class="section">
-        <h1>Breadcrumbs Demo</h1>
-        <div id="mount"></div>
+        <h2>Scenario: Current page as a link</h2>
+        <div class="mount"></div>
+        <div class="code-tabs" role="tablist">
+          <button class="code-tabs__tab code-tabs__tab--active" role="tab" aria-selected="true" data-tab="html-1">HTML</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="css-1">CSS</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="js-1">JS</button>
+        </div>
+        <div class="code-preview" id="panel-html-1" role="tabpanel">
+          <pre class="line-numbers"><code id="code-html-1" class="language-markup"></code></pre>
+          <button class="code-preview__copy" data-target="code-html-1">Copy Code</button>
+        </div>
+        <div class="code-preview" id="panel-css-1" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-css-1" class="language-css"></code></pre>
+          <button class="code-preview__copy" data-target="code-css-1">Copy Code</button>
+        </div>
+        <div class="code-preview" id="panel-js-1" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-js-1" class="language-javascript"></code></pre>
+          <button class="code-preview__copy" data-target="code-js-1">Copy Code</button>
+        </div>
       </div>
 
+      <!-- Scenario 2: Current page is NOT a link -->
       <div class="section">
-        <h2>Code</h2>
+        <h2>Scenario: Current page is NOT a link</h2>
+        <div class="mount"></div>
         <div class="code-tabs" role="tablist">
-          <button class="code-tabs__tab code-tabs__tab--active" role="tab" aria-selected="true" data-tab="html">HTML</button>
-          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="css">CSS</button>
-          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="js">JS</button>
+          <button class="code-tabs__tab code-tabs__tab--active" role="tab" aria-selected="true" data-tab="html-2">HTML</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="css-2">CSS</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="js-2">JS</button>
         </div>
-        <div class="code-preview" id="panel-html" role="tabpanel">
-          <pre class="line-numbers"><code id="code-html" class="language-markup"></code></pre>
-          <button class="code-preview__copy" data-target="code-html">Copy</button>
+        <div class="code-preview" id="panel-html-2" role="tabpanel">
+          <pre class="line-numbers"><code id="code-html-2" class="language-markup"></code></pre>
+          <button class="code-preview__copy" data-target="code-html-2">Copy Code</button>
         </div>
-        <div class="code-preview" id="panel-css" role="tabpanel" hidden>
-          <pre class="line-numbers"><code id="code-css" class="language-css"></code></pre>
-          <button class="code-preview__copy" data-target="code-css">Copy</button>
+        <div class="code-preview" id="panel-css-2" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-css-2" class="language-css"></code></pre>
+          <button class="code-preview__copy" data-target="code-css-2">Copy Code</button>
         </div>
-        <div class="code-preview" id="panel-js" role="tabpanel" hidden>
-          <pre class="line-numbers"><code id="code-js" class="language-javascript"></code></pre>
-          <button class="code-preview__copy" data-target="code-js">Copy</button>
+        <div class="code-preview" id="panel-js-2" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-js-2" class="language-javascript"></code></pre>
+          <button class="code-preview__copy" data-target="code-js-2">Copy Code</button>
         </div>
       </div>
 
@@ -71,55 +93,76 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
 
     <script>
-      // Fetch HTML fragment
-      fetch("./breadcrumbs.html")
+      var mounts = document.querySelectorAll(".mount");
+
+      // Scenario 1: Current page as a link
+      fetch("./breadcrumbs-link.html")
         .then(function (r) { return r.text(); })
         .then(function (html) {
-          document.getElementById("mount").innerHTML = html;
+          mounts[0].innerHTML = html;
 
-          // Populate HTML code preview (strip leading comment block)
-          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
-          var codeHtml = document.getElementById("code-html");
+          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/g, "").trim();
+          var codeHtml = document.getElementById("code-html-1");
           codeHtml.textContent = rawHtml;
           Prism.highlightElement(codeHtml);
 
-          // Load component JS
+          // Load component JS once
           var s = document.createElement("script");
           s.src = "./breadcrumbs.js";
           document.body.appendChild(s);
         });
 
-      // Fetch CSS
+      // Scenario 2: Current page is NOT a link
+      fetch("./breadcrumbs-nolink.html")
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
+          mounts[1].innerHTML = html;
+
+          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/g, "").trim();
+          var codeHtml = document.getElementById("code-html-2");
+          codeHtml.textContent = rawHtml;
+          Prism.highlightElement(codeHtml);
+        });
+
+      // Fetch CSS — populate both panels
       fetch("./breadcrumbs.css")
         .then(function (r) { return r.text(); })
         .then(function (css) {
-          var codeCss = document.getElementById("code-css");
-          codeCss.textContent = css;
-          Prism.highlightElement(codeCss);
+          ["code-css-1", "code-css-2"].forEach(function (id) {
+            var el = document.getElementById(id);
+            el.textContent = css;
+            Prism.highlightElement(el);
+          });
         });
 
-      // Fetch JS
+      // Fetch JS — populate both panels
       fetch("./breadcrumbs.js")
         .then(function (r) { return r.text(); })
         .then(function (js) {
-          var codeJs = document.getElementById("code-js");
-          codeJs.textContent = js;
-          Prism.highlightElement(codeJs);
+          ["code-js-1", "code-js-2"].forEach(function (id) {
+            var el = document.getElementById(id);
+            el.textContent = js;
+            Prism.highlightElement(el);
+          });
         });
 
-      // Tab switching
-      var tabs = document.querySelectorAll(".code-tabs__tab");
-      var codePanels = document.querySelectorAll("#panel-html, #panel-css, #panel-js");
-      tabs.forEach(function (tab) {
-        tab.addEventListener("click", function () {
-          tabs.forEach(function (t) {
-            t.classList.remove("code-tabs__tab--active");
-            t.setAttribute("aria-selected", "false");
+      // Tab switching — scoped per tab group
+      document.querySelectorAll(".code-tabs").forEach(function (tabBar) {
+        var tabs = tabBar.querySelectorAll(".code-tabs__tab");
+        tabs.forEach(function (tab) {
+          tab.addEventListener("click", function () {
+            tabs.forEach(function (t) {
+              t.classList.remove("code-tabs__tab--active");
+              t.setAttribute("aria-selected", "false");
+            });
+            tabs.forEach(function (t) {
+              var panel = document.getElementById("panel-" + t.dataset.tab);
+              if (panel) panel.hidden = true;
+            });
+            tab.classList.add("code-tabs__tab--active");
+            tab.setAttribute("aria-selected", "true");
+            document.getElementById("panel-" + tab.dataset.tab).hidden = false;
           });
-          codePanels.forEach(function (p) { p.hidden = true; });
-          tab.classList.add("code-tabs__tab--active");
-          tab.setAttribute("aria-selected", "true");
-          document.getElementById("panel-" + tab.dataset.tab).hidden = false;
         });
       });
 
@@ -129,7 +172,7 @@
           var codeEl = document.getElementById(btn.dataset.target);
           navigator.clipboard.writeText(codeEl.textContent).then(function () {
             btn.textContent = "Copied!";
-            setTimeout(function () { btn.textContent = "Copy"; }, 2000);
+            setTimeout(function () { btn.textContent = "Copy Code"; }, 2000);
           });
         });
       });
