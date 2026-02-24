@@ -3,25 +3,14 @@
   Conforms to:
     - components/breadcrumbs/breadcrumbs.md
     - components/breadcrumbs/breadcrumbs.tc.md
+  Scenario: Current page as a link
 -->
 
-<p><strong>Scenario:</strong> Current page as a link</p>
 <nav class="breadcrumb" aria-label="breadcrumb">
   <ol class="breadcrumb__list">
     <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/home">Home</a></li>
     <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/products">Products</a></li>
     <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/products/electronics">Electronics</a></li>
     <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/products/electronics/camera" aria-current="page">Cameras</a></li>
-  </ol>
-</nav>
-
-<br />
-<p><strong>Scenario:</strong> Current page is NOT a link</p>
-<nav class="breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb__list">
-    <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/home">Home</a></li>
-    <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/products">Products</a></li>
-    <li class="breadcrumb__item"><a class="breadcrumb__link link-underlined" href="/products/electronics">Electronics</a></li>
-    <li class="breadcrumb__item" aria-current="page">Cameras</li>
   </ol>
 </nav>

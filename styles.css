@@ -1,0 +1,38 @@
+.component-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.component-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background: #fff;
+  transition: box-shadow var(--transition-duration), transform var(--transition-duration);
+}
+
+.component-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.component-card img {
+  width: 100%;
+  display: block;
+}
+
+.component-card__label {
+  padding: 0.75rem;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+}
