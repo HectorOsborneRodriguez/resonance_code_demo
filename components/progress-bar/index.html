@@ -11,6 +11,8 @@
       href="../../assets/images/favicon.ico"
       type="image/x-icon"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" />
   </head>
   <body>
     <header>
@@ -25,11 +27,23 @@
       </div>
 
       <div class="section">
-        <h2>HTML Code</h2>
-        <button class="code-preview__toggle" aria-expanded="false" aria-controls="code-preview">Show Code</button>
-        <div class="code-preview" id="code-preview" hidden>
-          <pre><code id="code-output"></code></pre>
-          <button class="code-preview__copy">Copy</button>
+        <h2>Code</h2>
+        <div class="code-tabs" role="tablist">
+          <button class="code-tabs__tab code-tabs__tab--active" role="tab" aria-selected="true" data-tab="html">HTML</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="css">CSS</button>
+          <button class="code-tabs__tab" role="tab" aria-selected="false" data-tab="js">JS</button>
+        </div>
+        <div class="code-preview" id="panel-html" role="tabpanel">
+          <pre class="line-numbers"><code id="code-html" class="language-markup"></code></pre>
+          <button class="code-preview__copy" data-target="code-html">Copy</button>
+        </div>
+        <div class="code-preview" id="panel-css" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-css" class="language-css"></code></pre>
+          <button class="code-preview__copy" data-target="code-css">Copy</button>
+        </div>
+        <div class="code-preview" id="panel-js" role="tabpanel" hidden>
+          <pre class="line-numbers"><code id="code-js" class="language-javascript"></code></pre>
+          <button class="code-preview__copy" data-target="code-js">Copy</button>
         </div>
       </div>
 
@@ -53,39 +67,72 @@
     <footer>
       <p>&copy; Accenture - Resonance</p>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+
     <script>
+      // Fetch HTML fragment
       fetch("./progress-bar.html")
-        .then((r) => r.text())
-        .then((html) => {
+        .then(function (r) { return r.text(); })
+        .then(function (html) {
           document.getElementById("mount").innerHTML = html;
 
-          // Populate code preview (strip leading comment block)
-          var raw = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
-          document.getElementById("code-output").textContent = raw;
+          // Populate HTML code preview (strip leading comment block)
+          var rawHtml = html.replace(/<!--[\s\S]*?-->\n*/, "").trim();
+          var codeHtml = document.getElementById("code-html");
+          codeHtml.textContent = rawHtml;
+          Prism.highlightElement(codeHtml);
 
-          // Toggle show/hide
-          var toggle = document.querySelector(".code-preview__toggle");
-          var preview = document.getElementById("code-preview");
-          toggle.addEventListener("click", function () {
-            var expanded = preview.hidden;
-            preview.hidden = !expanded;
-            toggle.textContent = expanded ? "Hide Code" : "Show Code";
-            toggle.setAttribute("aria-expanded", expanded);
-          });
-
-          // Copy to clipboard
-          var copyBtn = document.querySelector(".code-preview__copy");
-          copyBtn.addEventListener("click", function () {
-            navigator.clipboard.writeText(raw).then(function () {
-              copyBtn.textContent = "Copied!";
-              setTimeout(function () { copyBtn.textContent = "Copy"; }, 2000);
-            });
-          });
-
+          // Load component JS
           var s = document.createElement("script");
           s.src = "./progress-bar.js";
           document.body.appendChild(s);
         });
+
+      // Fetch CSS
+      fetch("./progress-bar.css")
+        .then(function (r) { return r.text(); })
+        .then(function (css) {
+          var codeCss = document.getElementById("code-css");
+          codeCss.textContent = css;
+          Prism.highlightElement(codeCss);
+        });
+
+      // Fetch JS
+      fetch("./progress-bar.js")
+        .then(function (r) { return r.text(); })
+        .then(function (js) {
+          var codeJs = document.getElementById("code-js");
+          codeJs.textContent = js;
+          Prism.highlightElement(codeJs);
+        });
+
+      // Tab switching
+      var tabs = document.querySelectorAll(".code-tabs__tab");
+      var panels = document.querySelectorAll("[role='tabpanel']");
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          tabs.forEach(function (t) {
+            t.classList.remove("code-tabs__tab--active");
+            t.setAttribute("aria-selected", "false");
+          });
+          panels.forEach(function (p) { p.hidden = true; });
+          tab.classList.add("code-tabs__tab--active");
+          tab.setAttribute("aria-selected", "true");
+          document.getElementById("panel-" + tab.dataset.tab).hidden = false;
+        });
+      });
+
+      // Copy buttons
+      document.querySelectorAll(".code-preview__copy").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var codeEl = document.getElementById(btn.dataset.target);
+          navigator.clipboard.writeText(codeEl.textContent).then(function () {
+            btn.textContent = "Copied!";
+            setTimeout(function () { btn.textContent = "Copy"; }, 2000);
+          });
+        });
+      });
     </script>
   </body>
 </html>
