@@ -4,11 +4,32 @@
   margin: 2rem auto;
   padding: 1rem;
   border: 1px solid #bbb;
-  border-radius: 0.9rem;
-  font-family: system-ui, sans-serif;
-
+  
   /* Pointer affordance for "clickable card" */
   cursor: pointer;
+}
+
+.card-link {
+  position: absolute;
+  display: block;
+  content:'';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  z-index: 1; /* Make sure z-index is higher than card, but not higher than any other z-index like modal */
+}
+
+/* Make the entire card clickable by layering a full-size link over it */
+.card-link::before {
+  position: absolute;
+  display: block;
+  content:'';
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom:0;
+  z-index: 1; /* Make sure z-index is higher than card, but not higher than any other z-index like modal */
 }
 
 .card__title {

@@ -1,19 +1,18 @@
 .component-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 1.5rem;
 }
 
 .component-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 1rem;
   text-decoration: none;
   color: var(--text-color);
   border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  overflow: hidden;
+  padding: 1rem;
   background: #fff;
   transition: box-shadow var(--transition-duration), transform var(--transition-duration);
 }
@@ -24,15 +23,39 @@
 }
 
 .component-card img {
-  width: 100%;
-  display: block;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
-.component-card__label {
-  padding: 0.75rem;
+.component-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.component-card__title {
   font-size: var(--font-size-base);
   font-weight: 600;
-  text-align: center;
-  width: 100%;
-  border-top: 1px solid var(--border-color);
+}
+
+.component-card__desc {
+  font-size: var(--font-size-small);
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Tablet: 2 per row */
+@media (max-width: 960px) {
+  .component-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: 1 per row */
+@media (max-width: 600px) {
+  .component-grid {
+    grid-template-columns: 1fr;
+  }
 }
