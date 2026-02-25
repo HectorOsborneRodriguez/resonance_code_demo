@@ -42,12 +42,35 @@ Each component is self-contained with HTML, CSS, and JS for easy learning and re
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/HectorOsborneRodriguez/resonance_code_demo.git
+git clone https://dev.azure.com/DDPInternal/Accessibility%20Sub-Practice/_git/resonance_code_demo
 ```
 
-2. Open `index.html` in a browser, or navigate to any component folder and open its `index.html`.
+2. Start a local HTTP server from the project root:
+
+**macOS / Linux** (Python is pre-installed):
+
+```bash
+cd resonance_code_demo
+python3 -m http.server 8080
+```
+
+**Windows** (Python):
+
+```bash
+cd resonance_code_demo
+python -m http.server 8080
+```
+
+**Alternative — Node.js** (any platform):
+
+```bash
+npx http-server -p 8080
+```
+
+3. Open [http://localhost:8080](http://localhost:8080) in your browser.
 
 No build tools or frameworks required — everything runs with vanilla HTML, CSS, and JS.
+A local server is needed because components are loaded via `fetch()`, which requires HTTP.
 
 ---
 
