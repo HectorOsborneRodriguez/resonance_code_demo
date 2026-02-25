@@ -143,6 +143,16 @@ a.link-underlined:hover:before {
     min-width: 375px;
 }
 
+.mount > .card-list {
+    width: 80%;
+    min-width: 375px;
+}
+
+.mount > .link-demo {
+    width: 65%;
+    min-width: 375px;
+}
+
 
 footer {
     margin: 1rem 0;
