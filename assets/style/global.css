@@ -83,7 +83,6 @@ li {
 
 a {
   color: var(--primary-color);
-  position: relative;
 }
 
 a:hover {
@@ -132,8 +131,8 @@ a.link-underlined:hover:before {
 }
 
 .mount > * {
-    width: 33%;
-    min-width: 280px;
+    width: 34%;
+    min-width: 375px;
 }
 
 
@@ -197,7 +196,7 @@ header {
 .code-tabs {
     display: flex;
     gap: 0;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid var(--border-color);
     margin-top: 0.75rem;
 }
 
@@ -217,24 +216,27 @@ header {
 }
 
 .code-tabs__tab--active {
-    background: #1e1e1e;
-    color: #d4d4d4;
-    border-color: #444;
+    background: var(--primary-color);
+    color: var(--primary-color-inverse);
+    border-color: var(--border-color);
+    font-weight: 600;
 }
 
 /* Code preview panels */
 .code-preview pre[class*="language-"] {
-    background: #1e1e1e;
+    background: #FFF;
     font-size: var(--font-size-small);
     margin: 0 0 0.5rem;
+    border: 1px solid var(--border-color);
+    border-top: none;
 }
 
 .code-preview .line-numbers .line-numbers-rows {
-    border-right-color: #444;
+    border-right-color: #ddd;
 }
 
 .code-preview .line-numbers-rows > span::before {
-    color: #666;
+    color: #999;
 }
 
 .code-preview__copy {
