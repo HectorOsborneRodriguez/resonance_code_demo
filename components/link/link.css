@@ -1,8 +1,32 @@
-a {
+.link-demo h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.link-demo h3 {
+  font-size: 1.1rem;
+  margin: 1.5rem 0 0.75rem;
+  color: #222;
+}
+
+.link-demo p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  color: #444;
+}
+
+.link-demo a {
   color: #0033cc;
 }
 
-a:focus {
+.link-demo a:focus {
   outline: 3px solid #000;
   outline-offset: 2px;
+}
+
+.link-demo section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
 }
