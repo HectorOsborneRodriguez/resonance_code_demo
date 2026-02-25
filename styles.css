@@ -1,8 +1,46 @@
+/* Banner */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 1.5rem;
+}
+
+.banner__text {
+  flex: 1;
+}
+
+.banner__title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  color: var(--color-black);
+  margin-bottom: 0.75rem;
+}
+
+.banner__tagline {
+  font-size: var(--font-size-large);
+  line-height: 1.6;
+  color: #555;
+}
+
+.banner__image {
+  width: 280px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .banner__image {
+    display: none;
+  }
+}
+
+/* Component grid */
 .component-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  margin-top: 1.5rem;
 }
 
 .component-card {

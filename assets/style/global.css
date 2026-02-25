@@ -73,6 +73,12 @@ h1 {
   color: var(--text-color);
 }
 
+.component-tagline {
+  color: #555;
+  margin-top: 0.25rem;
+  max-width: 75ch;
+}
+
 ul {
   /* list-style: none; */
   padding: 0 1rem;
@@ -92,7 +98,9 @@ a:hover {
 
 a.link-underlined {
     text-decoration: none;
+    position: relative;
 }
+
 a.link-underlined:before {
     content: "";
     position: absolute;
